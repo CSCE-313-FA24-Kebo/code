@@ -10,10 +10,9 @@ The goal is for the parent to sent a message to the child process
 #include <sys/wait.h>
 
 int main(int argc, char* argv[]){
-	int pipefds[2];
+	int pipefds[2]; // file descriptor array for the pipe
 	pid_t pid;
 	char buf[30];
-	//create pipe - ONE PIPE!
 	
 	if(pipe(pipefds)==-1){
 		perror("pipe");
@@ -21,8 +20,10 @@ int main(int argc, char* argv[]){
 	}
 
 	memset(buf,0,30);
-	pid = fork();// Two processes run - Parent and Child
+	pid = fork(); // Create 1 child process
 
+
+	// TODO: send the string CSCE313-24 from the parent to the child
 	if(pid>0){
 		printf("PARENT: writing to the pipe\n");
 		//parent close the read end

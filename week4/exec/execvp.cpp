@@ -9,8 +9,8 @@ using namespace std;
 
 int main()
 {
-    const char *file = "factorial.sh";
-    char *const args[] = {"factorial.sh", NULL};
+    char *file = "echo";
+    char *const args[] = {"/usr/bin/echo", "Hello world!", NULL};
     execvp(file, args);
     return 0;
 }
