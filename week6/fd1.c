@@ -11,7 +11,7 @@ Parent and child processes share the same file descriptors.
 int main()
 {
 	char c1, c2, c3;
-	int fd1 = open("sample.txt", O_RDONLY, 0);
+	int fd1 = open("sample.txt", O_RDONLY, O_CREAT, 0);
 	int fd2 = open("sample.txt", O_RDONLY, 0);
 	int fd3 = open("sample.txt", O_RDONLY, 0);
 
@@ -30,11 +30,5 @@ int main()
 	read(fd3, &c3, 1);
 	printf("c = %c\n", c3);
 	exit(0);
-
-	// MINECRAFT
-	/*
-	read () -> M
-	read () -> I
-	*/
 
 }

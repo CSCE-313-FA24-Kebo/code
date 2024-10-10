@@ -31,7 +31,7 @@ int main()
 	else {
 		wait(0); // Wait for the child to finish updating the fd
 		printf("File descriptor: %d \n", fd);
-		lseek (fd, 0, SEEK_CUR);
+		lseek (fd, 2, SEEK_CUR);
 		read(fd, &c, 1); // In the parent read one character from Minecraft - character ??
 		printf("Parent --- c = %c\n", c);
 	}
@@ -50,13 +50,13 @@ int main()
 */
 
 /*
---------- M
+--------- M 
 --------- i
 --------- n
---------- e
---------- c << read
----------
----------
+--------- e << child finishes HERE
+--------- c 
+--------- r
+--------- a
 ---------
 ---------
 
