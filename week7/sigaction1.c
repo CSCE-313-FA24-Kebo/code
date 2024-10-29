@@ -2,6 +2,15 @@
 Example: Use sigaction() to establish a handler for the SIGINT signal.
 */
 
+//  |sigaction| vs signal <<<<
+
+// sigaction handles sets of signals 
+// create mask of blocked signals
+// functions to add signals to the mask
+// functions to empty the mask
+// Flags
+
+
 #include "apue.h"
 #include <signal.h>
 

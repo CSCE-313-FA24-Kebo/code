@@ -15,7 +15,7 @@ int order; // :(
 void* place_order(void* arg)
 {
 	unsigned long i = 0;
-	order += 1;
+	order += 1; // this is a shared variable on t1 and t2
 
 	printf("\n Order #%d received\n", order);
 

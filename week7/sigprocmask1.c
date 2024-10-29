@@ -12,7 +12,7 @@ int main() {
   sigset_t new_mask, old_mask;
 
   // Initialize the new signal mask.
-  sigemptyset(&new_mask); // Before blocking - lear
+  sigemptyset(&new_mask); // Before blocking - Clear
   sigaddset(&new_mask, SIGINT); // new_mask = {SIGINT}
 
   // blocks the signals in the new_mask set and returns the old signal mask in the old_mask variable.
@@ -21,8 +21,8 @@ int main() {
   // Print a message.
   printf("SIGINT is blocked.\n");
 
-  // Sleep for 10 seconds.
-  sleep(10);
+  // Sleep for 20 seconds.
+  sleep(20);
 
   printf("Before restore\n");
 
@@ -30,7 +30,7 @@ int main() {
   sigprocmask(SIG_SETMASK, &old_mask, NULL); // Restore the old mask
 
   // Sleep for 10 seconds.
-  sleep(10);
+  sleep(20);
 
   // Print a message.
   printf("All signals are unblocked.\n");

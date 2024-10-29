@@ -24,7 +24,7 @@ void forkexample()
 	else
 	{   // Client
 		///wait(NULL);
-		//wait(&child_status); // Waits at least one child process to return an exit status -- Listens to a signal (SIG_CHLD)
+		wait(&child_status); // Waits at least one child process to return an exit status -- Listens to a signal (SIG_CHLD)
 		printf("2. Hello from Parent!\n");
 		printf("2. Parent process ID is %d\n", getpid());
 		printf("2. Parent: My parent process ID is %d\n", getppid());

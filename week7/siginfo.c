@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+// for debugging purpose
 static void handler(int sig, siginfo_t *si, void *uap)
 {
   printf("signal %d received with siginfo_t:\n", sig);
@@ -39,7 +40,7 @@ int main(void)
   // Set the field for the sigaction struct
   memset(&sa, 0, sizeof(sa));
   sa.sa_sigaction = handler;
-  sa.sa_flags = SA_SIGINFO | SA_RESTART | SA_NOCLDSTOP;
+  sa.sa_flags = SA_RESTART | SA_NOCLDSTOP | SA_SIGINFO;
 
   sigaction(SIGCHLD, &sa, NULL); // Call the sigaction function
 
@@ -50,7 +51,7 @@ restart: // Label
   switch(pid = fork()) {
     case -1: return -1; // error
     case 0: /* children */
-       sleep(2);
+       sleep(2);// The child process ends after two seconds
        printf("Child process: PID = %d\n", getpid());
        return execlp("./hello.sh", "nothing",NULL);
      default: /* parent */

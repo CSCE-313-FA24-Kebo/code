@@ -7,6 +7,11 @@ Example: Signal handler for CTRL-C using sigaction
 void sighandler(int signum)
 {
     printf("\nSignal caught!\n");
+    ///....... Additional incoming SIGINTs are blocked
+
+    /// Else
+
+    // Unblock the same signal (SIGINT) -->
 }
 
 int main()
